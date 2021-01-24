@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Veterinarios 
+
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+
+  <ion-card *ngFor="let veterinario of veterinarios">
+    <div  *ngIf="veterinario.active">
+       
+    <img src="{{veterinario.image}}">
+
+    <ion-card-header>
+      <ion-card-subtitle>{{veterinario.title}}</ion-card-subtitle>
+      <ion-card-title>{{veterinario.subtitle}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      {{veterinario.description}}
+    </ion-card-content>
+    <ion-button fill="outline" slot="end">Contactar</ion-button>
+    <ion-button (click)="onClick()" expand="block" fill="clear" shape="round">
+      Click me
+    </ion-button>
+    
+    <a href="https://wa.link/m46p9e" class="button">Apriétame!</a>
+
+  </div>
+</ion-card>
+
+  
