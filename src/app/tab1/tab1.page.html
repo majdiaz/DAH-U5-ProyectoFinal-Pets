@@ -22,12 +22,10 @@
     <ion-card-content>
       {{veterinario.description}}
     </ion-card-content>
-    <ion-button fill="outline" slot="end">Contactar</ion-button>
-    <ion-button (click)="onClick()" expand="block" fill="clear" shape="round">
-      Click me
-    </ion-button>
-    
-    <a href="https://wa.link/m46p9e" class="button">Apriétame!</a>
+    <ion-button href="{{veterinario.contact}}" fill="outline" slot="end">
+      Contactar
+      <ion-icon slot="start" name="logo-whatsapp"></ion-icon>
+    </ion-button>    
 
   </div>
 </ion-card>

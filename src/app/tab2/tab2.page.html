@@ -1,17 +1,44 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">      
+      <ion-menu-button ></ion-menu-button>      
+  </ion-buttons>
     <ion-title>
-      Tab 2
+      Catalogo de productos
     </ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> 
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-slides *ngIf="products.length">    
+    <ion-slide *ngFor="let item of products; index as i">
+      <ion-card>
+        <img src="{{ item.photo }}" width="5%" height="5%">
+        <ion-card-header>
+          <ion-card-title>{{item.name}}</ion-card-title>
+          <ion-card-subtitle>{{item.description}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <div>
+            <div>
+              <ion-chip color="primary">
+                <ion-label>{{item.price |currency}}</ion-label>
+              </ion-chip>
+            </div>
+          </div>
+          
+          <ion-fab vertical="top" horizontal="end">
+            <ion-fab-button>
+              <ion-icon name="add"></ion-icon>
+            </ion-fab-button>            
+            <ion-fab-list side="top">
+              <ion-fab-button color="secondary" (click)="addToCar(item)">
+                <ion-icon name="cart"></ion-icon>
+              </ion-fab-button>
+            </ion-fab-list>
+          </ion-fab>          
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
 </ion-content>

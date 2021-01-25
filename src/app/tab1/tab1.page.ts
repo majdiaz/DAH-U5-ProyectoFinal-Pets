@@ -16,7 +16,8 @@ export class Tab1Page {
       title: 'María Flores Cantú',
       subtitle: 'Anestesiología Veterinaria',
       description: 'Usada para la intervención en procedimientos quirúrgicos y el manejo del dolor mediante el conocimiento de técnicas farmacológicas de analgesia en pacientes de diversas especies.',
-      active: true
+      active: true,
+      contact: 'https://wa.link/m46p9e'
     });
 
     this.veterinarios.push({
@@ -24,7 +25,8 @@ export class Tab1Page {
       title: 'Juan Manuel Medin',
       subtitle: 'Cardiología veterinaria',
       description: 'Interpretación de pruebas diagnósticas en cardiología como electrocardiogramas, ecocardiogramas y manejo de tratamientos especializados en éste ámbito.',
-      active: true
+      active: true,
+      contact: 'https://wa.link/v6731e'
     });
 
     this.veterinarios.push({
@@ -32,7 +34,8 @@ export class Tab1Page {
       title: 'Marta Ortega Briseño',
       subtitle: 'Cirugía veterinaria',
       description: 'La especialidad de cirugía puede estar enfocada en grandes o en pequeñas especies, ya que la anatomía y el manejo farmacológico varía según la especie a tratar.',
-      active: true
+      active: true,
+      contact: 'https://wa.link/m46p9e'
     });
     
     this.veterinarios.push({
@@ -40,7 +43,8 @@ export class Tab1Page {
       title: 'Raul Muro',
       subtitle: 'Dermatología veterinaria',
       description: 'Tener dominio de esta especialidad veterinaria permite lograr diagnósticos más acertados y realizar tratamientos eficaces',
-      active: true 
+      active: true,
+      contact: 'https://wa.link/v6731e'
     });
   }
 
