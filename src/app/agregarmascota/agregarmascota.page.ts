@@ -3,6 +3,10 @@ import { FormGroup, FormBuilder } from "@angular/forms";
 import { Mascotas } from "../models/mascotas";
 import { MascotasService } from "../services/mascotas.service";
 import { Router } from "@angular/router";
+import { ToastController } from "@ionic/angular";
+
+import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
+import { identity } from 'rxjs';
 
 @Component({
   selector: 'app-agregarmascota',
@@ -12,8 +16,8 @@ import { Router } from "@angular/router";
 export class AgregarmascotaPage  {
   
   public myForm:FormGroup;
-  public mascota:Mascotas;
-  constructor(private mascotaService:MascotasService, private fb:FormBuilder, private router: Router) { 
+  public mascota:Mascotas;  
+  constructor(private mascotaService:MascotasService, private fb:FormBuilder, private router: Router, private toastController: ToastController) { 
     this.myForm = this.fb.group({            
       nombre: [""],
       especie: [""],
@@ -26,8 +30,8 @@ export class AgregarmascotaPage  {
   }
 
   create() {   
-    this.mascota = {
-      id: "",      
+    this.mascota = {      
+      id: "",
       nombre: this.myForm.controls.nombre.value,          
       especie: this.myForm.controls.especie.value,
       raza: this.myForm.controls.raza.value,
@@ -38,7 +42,17 @@ export class AgregarmascotaPage  {
    }
    
    this.mascotaService.createMascota(this.mascota);  
- 
+   this.presentToastA();
+
+   
+  }
+
+  async presentToastA(){
+    const toast = await this.toastController.create({
+      message: 'Mascota guardada.',
+      duration: 3000
+    });
+    toast.present();
   }
 
   volver(){

@@ -3,6 +3,7 @@ import { Mascotas } from "../models/mascotas";
 import { MascotasService } from "../services/mascotas.service";
 import { Router, NavigationExtras, ActivatedRoute } from "@angular/router";
 import { FormGroup, FormBuilder } from "@angular/forms";
+import { ToastController } from "@ionic/angular";
 
 @Component({
   selector: 'app-editarmascota',
@@ -15,7 +16,7 @@ export class EditarmascotaPage implements OnInit {
   
   
   constructor(private mascotaService:MascotasService,private actroute: ActivatedRoute, 
-              private fb:FormBuilder, private router: Router) { 
+              private fb:FormBuilder, private router: Router, private toastController: ToastController) { 
 
       this.actroute.queryParams.subscribe(
         params => {
@@ -68,5 +69,16 @@ export class EditarmascotaPage implements OnInit {
       m.enlace=this.myForm.controls.enlace.value;  
     }                
     this.mascotaService.updateMascota(m, m.id);
+
+    this.presentToastE();
   }
+
+  async presentToastE(){
+    const toast = await this.toastController.create({
+      message: 'Datos editados.',
+      duration: 3000
+    });
+    toast.present();
+  }
+
 }

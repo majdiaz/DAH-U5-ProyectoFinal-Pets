@@ -20,4 +20,8 @@ export class MascotasService {
   updateMascota(mascota: Mascotas, id: string){
     this.firestore.doc('Mascotas/'+id).update(mascota);
   }
+
+  deleteMascota( id: string){
+    this.firestore.doc('Mascotas/'+id).delete();
+ }
 }

@@ -1,5 +1,5 @@
-export class Mascotas {
-    id: any;
+export class Mascotas {    
+    id: string;
     nombre: string;
     especie: string;
     raza: string;
